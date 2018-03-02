@@ -166,7 +166,7 @@ class TopicList extends PureComponent {
         }
       })
       .then(text => {
-        if (text == "添加成功") {
+        if (text === "添加成功") {
           message.success(text);
           // 传入之前用户选择
           this.getTopicListAction(this.state.ids, true);
