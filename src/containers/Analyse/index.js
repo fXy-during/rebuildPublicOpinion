@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Redirect } from "react-router-dom'";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Header from "../Head";
@@ -13,9 +13,6 @@ import DailyDataList from "../DataList/dailyList";
 import "./style.less";
 
 class Analyse extends PureComponent {
-  constructor(props, context) {
-    super(props, context);
-  }
   componentDidMount() {
     // if (this.props.userinfo.username == null ) { // 判断用户登录情况
     //     hashHistory.push('/');
@@ -32,15 +29,15 @@ class Analyse extends PureComponent {
   //     })
   // }
   render() {
-    // const { role, username } = this.props.userinfo;
+    const { role, username } = this.props.userinfo;
     // console.log('this.props.userinfo', this.props.userinfo);
-    if (this.props.userinfo.username == null) {
+    if (username) {
       // 判断用户登录情况
       return <Redirect to="/" />;
     }
-    const userinfo = this.props.userinfo;
-    const role = userinfo.role;
-    const username = userinfo.username;
+    // const userinfo = this.props.userinfo;
+    // const role = userinfo.role;
+    // const username = userinfo.username;
     // console.log('username',username);
 
     return (

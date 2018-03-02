@@ -29,38 +29,37 @@ class PriModify extends PureComponent {
         <Column
           title="操作"
           key="action"
-          render={(text, record, index) => (
-            <Breadcrumb>
-              <Breadcrumb.Item>
-                <a
-                  href="javascript:void(0)"
-                  onClick={e => {
-                    this.changePri(text);
-                  }}
-                >
-                  更变权限
-                </a>
-              </Breadcrumb.Item>
-              <Breadcrumb.Item>
-                <Popconfirm
-                  title="Are you sure delete this user?"
-                  onConfirm={e => {
-                    this.confirmText(text);
-                  }}
-                  onCancel={this.cancel}
-                  okText="Yes"
-                  cancelText="No"
-                >
-                  <a href="javascript:void(0)">删除用户</a>
-                </Popconfirm>
-              </Breadcrumb.Item>
-            </Breadcrumb>
-          )}
+          render={(text, record, index) => <div>test</div>}
         />
       </Table>
     );
   }
 }
+// <Breadcrumb>
+//   <Breadcrumb.Item>
+//     <a
+//       href="javascript:void(0)"
+//       onClick={e => {
+//         this.changePri(text);
+//       }}
+//     >
+//       更变权限
+//     </a>
+//   </Breadcrumb.Item>
+//   <Breadcrumb.Item>
+//     <Popconfirm
+//       title="Are you sure delete this user?"
+//       onConfirm={e => {
+//         this.confirmText(text);
+//       }}
+//       onCancel={this.cancel}
+//       okText="Yes"
+//       cancelText="No"
+//     >
+//       <a href="javascript:void(0)">删除用户</a>
+//     </Popconfirm>
+//   </Breadcrumb.Item>
+// </Breadcrumb>
 
 export default PriModify;
 

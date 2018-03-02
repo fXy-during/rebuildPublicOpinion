@@ -31,18 +31,19 @@ class RouteMap extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/ana" exact component={Analyse} />
-          <Route path="/handle" exact component={Handle} />
-          <Route path="/special" exact component={Special} />
-          <Route path="/Topic" exact component={Topic} />
-          <Route path="/login(/:router)" exact component={Login} />
-          <Redirect exact from="/" to="/home" />
+          <Route path="/ana" render={() => <div>gogogo</div>} />
+          <Route path="/handle" component={Handle} />
+          <Route path="/special" component={Special} />
+          <Route path="/Topic" component={Topic} />
+          <Route path="/login(/:router)" component={Login} />
+          <Redirect exact from="/" to="/ana" />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
     );
   }
 }
+// <Route path="/ana"  component={Analyse} />
 // 连接redux
 
 // {

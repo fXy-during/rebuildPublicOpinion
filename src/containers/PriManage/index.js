@@ -2,9 +2,9 @@ import React, { PureComponent } from "react";
 
 import {  Modal, Tabs, Icon, message } from 'antd';
 
-import AddUser from '../../components/PriManagePage/addUser'
-import PriModify from '../../components/PriManagePage/priModify'
-import PwModify from '../../components/PriManagePage/PwModify'
+import AddUser from '../../components/PriManagePage/addUser';
+import PriModify from '../../components/PriManagePage/priModify';
+import PwModify from '../../components/PriManagePage/pwModify';
 
 import getUserList from '../../fetch/userList';  // 获取用户列表
 import deleteUser from '../../fetch/deleteUser'  // 删除用户

@@ -4,7 +4,7 @@ import moment from "moment";
 import "./style.less";
 
 moment.locale("zh-cn");
-const SubMenu = Menu.SubMenu;
+// const SubMenu = Menu.SubMenu;
 const { MonthPicker } = DatePicker;
 
 class User extends PureComponent {
