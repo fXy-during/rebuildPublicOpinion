@@ -1,23 +1,21 @@
 import React, { PureComponent } from "react";
 // import { Link } from 'react-router';
 // import PureRenderMixin from 'react-addons-pure-render-mixin'
-import { message, Icon, Modal  } from 'antd';
+import { message, Icon, Modal } from "antd";
 
-import TableWrap from '../../../components/TableWrap';
-import getDailyDataList from '../../../fetch/DataList/dailyDataList';
-import getDailyDataSumPage from '../../../fetch/sumPage/dailyPage';
-import collect from '../../../fetch/collect';
+import TableWrap from "../../../components/TableWrap";
+import getDailyDataList from "../../../fetch/DataList/dailyDataList";
+import getDailyDataSumPage from "../../../fetch/sumPage/dailyPage";
+import collect from "../../../fetch/collect";
 
-import * as fetchType from '../../../constants/fetchType';
+import * as fetchType from "../../../constants/fetchType";
 
+import Collection from "./subpage";
+import format from "../../DataExhibition/subpage/format";
 
-import Collection from './subpage';
-import format from '../../DataExhibition/subpage/format'
+import "./style.less";
 
-import './style.less';
-
-
-var cacheData = [];  // 缓存已请求的数据
+var cacheData = []; // 缓存已请求的数据
 
 class DailyDataList extends PureComponent {
   constructor(props, context) {
@@ -36,46 +34,38 @@ class DailyDataList extends PureComponent {
       {
         title: "主题",
         dataIndex: "theme",
+        key: "theme",
         width: "20%",
         render: (text, record, index) => {
           return (
-            <a target="_blank" href={record.url}>
+            <a target="_blank" key={record.url} href={record.url}>
               {record.theme}
             </a>
           );
         }
       },
       {
-        title: "主要观点", // 可修改
+        title: "主要观点",
         dataIndex: "mainView",
-        key: "id",
+        key: "mainView",
         width: "35%",
         className: "column-font"
       },
-      {
-        title: "跟贴量",
-        dataIndex: "followCount"
-      },
-      {
-        title: "类别", // 可修改
-        dataIndex: "postType"
-      },
+      { title: "跟贴量", key: "followCount", dataIndex: "followCount" },
+      { title: "类别", key: "postType", dataIndex: "postType" },
       {
         title: "最后跟贴时间",
+        key: "lastFollowTime",
         dataIndex: "lastFollowTime"
       },
-      {
-        title: "发帖时间",
-        dataIndex: "postTime"
-      },
-      {
-        title: "来源",
-        dataIndex: "source"
-      },
+      { title: "发帖时间", key: "postTime", dataIndex: "postTime" },
+      { title: "来源", key: "source", dataIndex: "source" },
       {
         title: "归集",
+        key: "operation",
         dataIndex: "operation",
         render: (text, record, index) => {
+          // 可修改 // 可修改
           if (!!!record.collectionStatus) {
             return (
               <Icon

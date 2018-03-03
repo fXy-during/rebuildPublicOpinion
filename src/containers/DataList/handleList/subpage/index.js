@@ -359,12 +359,10 @@ class Handled extends React.Component {
     // const { theme, mainView, source, postType, followCount, postTime } = this.props.data;
     // console.log('handled render', data);
     const columns = [
-      {
-        title: "主题",
-        dataIndex: "theme"
-      },
+      { title: "主题", dataIndex: "theme", key: "theme" },
       {
         title: "处置情况",
+        key: "handledCondition",
         dataIndex: "handledCondition",
         width: "25%",
         render: (text, record, index) => {
@@ -386,6 +384,7 @@ class Handled extends React.Component {
       {
         title: "反馈情况",
         width: "25%",
+        key: "feedbackCondition",
         dataIndex: "feedbackCondition",
         render: (text, record, index) => {
           return (
@@ -402,6 +401,7 @@ class Handled extends React.Component {
       },
       {
         title: "具体处置",
+        key:"configHandle",
         width: "25%",
         render: (text, record, index) => {
           return (

@@ -11,11 +11,21 @@ import Topic from "../containers/Topic"; // 专贴事件
 import Login from "../containers/Login";
 import NotFound from "../containers/Notfound";
 import Analyse from "../containers/Analyse"; // 舆情分析
+// import loadable from "../components/AsuncLoading";
+
 // import App from "../containers/App";
 // import { Button } from "antd";
 // import { Affix, Button } from "antd";
 
 // let count = 0;
+// const AsyncHandle = loadable(()=> import("../containers/Handle"));
+// const AsyncSpecial = loadable(() => import("../containers/Special"));
+// const AsyncTopic = loadable(() => import("../containers/Topic"));
+// const AsyncLogin = loadable(() => import("../containers/Login"));
+// const AsyncNotFound = loadable(() => import("../containers/Notfound"));
+// const AsyncAnalyse = loadable(() => import("../containers/Analyse"));
+
+
 class RouteMap extends React.Component {
   constructor(props, context) {
     super(props, context);

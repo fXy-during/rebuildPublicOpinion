@@ -26,6 +26,7 @@ class EventsByTopicList extends PureComponent {
       {
         title: "主题",
         dataIndex: "theme",
+        key: "theme",
         width: "20%",
         render: (text, record, index) => {
           return (
@@ -36,19 +37,16 @@ class EventsByTopicList extends PureComponent {
         }
       },
       {
-        title: "主要观点", // 可修改
+        title: "主要观点",
         dataIndex: "mainView",
-        key: "id",
+        key: "mainView",
         width: "35%",
         className: "column-font"
       },
+      { title: "类别", key: "postType",dataIndex: "postType" },
       {
-        title: "类别", // 可修改
-        dataIndex: "postType"
-      },
-      {
-        title: "发帖时间",
-        // dataIndex: 'postTime',
+        title: "发帖时间", // dataIndex: 'postTime', // 可修改 // 可修改
+        key: "postTime",
         render: (text, record) => {
           // console.log('時間对象', record);
           return <span>{format(record.postTime, "MM-dd hh:mm")}</span>;
@@ -56,6 +54,7 @@ class EventsByTopicList extends PureComponent {
       },
       {
         title: "归集",
+        key: "operation",
         dataIndex: "operation",
         render: (text, record, index) => {
           if (!!!record.collectionStatus) {

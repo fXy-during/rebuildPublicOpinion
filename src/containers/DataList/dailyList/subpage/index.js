@@ -1,11 +1,11 @@
 import React, { PureComponent } from "react";
-import {  Button, Table } from 'antd';
+import { Button, Table } from "antd";
 
-import './style.less';
+import "./style.less";
 
-import EditableInput from '../../../../components/EditableInput';
+import EditableInput from "../../../../components/EditableInput";
 
-// const 
+// const
 // var initData = [];
 class Collection extends PureComponent {
   constructor(props, context) {
@@ -18,14 +18,12 @@ class Collection extends PureComponent {
       loading: false
     };
     this.columns = [
-      {
-        title: "主题",
-        dataIndex: "theme"
-      },
+      { title: "主题", key: "theme", dataIndex: "theme" },
       {
         title: "主要观点",
         dataIndex: "mainView",
         width: "40%",
+        key: "mainView",
         render: (text, record, index) => {
           // console.log('text, record, index', text, record, index);
           // const initMainView = text;
@@ -40,11 +38,13 @@ class Collection extends PureComponent {
       },
       {
         title: "更贴量",
+        key: "followCount",
         dataIndex: "followCount",
         width: "8%"
       },
       {
         title: "类别",
+        key: "postType",
         dataIndex: "postType",
         width: "20%",
         render: (text, record, index) => {
@@ -60,14 +60,11 @@ class Collection extends PureComponent {
       },
       {
         title: "发帖时间",
+        key: "postTime",
         dataIndex: "postTime",
         width: "8%"
       },
-      {
-        title: "来源",
-        dataIndex: "source",
-        width: "8%"
-      }
+      { title: "来源", key: "source", dataIndex: "source", width: "8%" }
     ];
   }
   // initDataAction(key, value) {

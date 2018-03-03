@@ -1,13 +1,12 @@
 import React, { PureComponent } from "react";
-import { Table } from 'antd';
-import PropTypes from 'prop-types';
+import { Table } from "antd";
+import PropTypes from "prop-types";
 
-import './style.less';
-
+import "./style.less";
 
 class TableWrap extends PureComponent {
   handleTableChange(pagination, filters, sorter) {
-    console.log("请求页数", pagination.current);
+    // console.log("请求页数", pagination.current);
     this.props.clickOtherPageAction(pagination.current);
   }
   handleDoubleClickRowAction(info) {
@@ -41,14 +40,14 @@ class TableWrap extends PureComponent {
   }
 }
 TableWrap.defaultProps = {
-    data: [],
-    pagination: {},
-}
+  data: [],
+  pagination: {}
+};
 TableWrap.propTypes = {
-    columns: PropTypes.array.isRequired,
-    data: PropTypes.array,
-    title: PropTypes.string,
-    loading: PropTypes.bool,
-    rowSelection: PropTypes.object,
-}
+  columns: PropTypes.array.isRequired,
+  data: PropTypes.array,
+  title: PropTypes.string,
+  loading: PropTypes.bool,
+  rowSelection: PropTypes.object
+};
 export default TableWrap;

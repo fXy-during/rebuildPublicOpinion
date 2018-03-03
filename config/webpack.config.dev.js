@@ -191,7 +191,7 @@ module.exports = {
                     })
                   ]
                 }
-              },
+              }
             ]
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
@@ -248,7 +248,13 @@ module.exports = {
     // solution that requires the user to opt into importing specific locales.
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.optimize.CommonsChunkPlugin({
+      // name: "commons",
+      name: ["react"]
+      // filename: "commons.[name].[hash:8].js",
+      // minChunks: 2
+    })
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.

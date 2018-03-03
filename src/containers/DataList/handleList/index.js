@@ -334,6 +334,7 @@ class HandleDataList extends PureComponent {
       {
         title: "主题",
         dataIndex: "theme",
+        key: "theme",
         width: "20%",
         render: (text, record, index) => {
           return (
@@ -344,21 +345,20 @@ class HandleDataList extends PureComponent {
         }
       },
       {
-        title: "主要观点", // 可修改
+        title: "主要观点",
         dataIndex: "mainView",
-        key: "id",
+        key: "mainView",
         width: "30%",
         className: "column-font"
       },
-      {
-        title: "类别", // 可修改
-        dataIndex: "postType"
-      },
+      { title: "类别", key: "postType", dataIndex: "postType" },
       {
         title: "处置情况",
+        key: "handledCondition",
         dataIndex: "handledCondition",
         filterDropdown: (
           <div id="handled-filter-wrap">
+            {" "}
             <RadioGroup
               onChange={this.handleHandledConditionChange.bind(this)}
               value={this.state.isHandled.value}
@@ -383,6 +383,7 @@ class HandleDataList extends PureComponent {
       },
       {
         title: "反馈情况",
+        key: "feedbackCondition",
         dataIndex: "feedbackCondition",
         filterDropdown: (
           <div id="handled-filter-wrap">
@@ -405,26 +406,11 @@ class HandleDataList extends PureComponent {
         ),
         filterIcon: <Icon type="filter" />
       },
-      {
-        title: "归集人",
-        dataIndex: "recorder"
-      },
-      {
-        title: "归集时间",
-        dataIndex: "collectedTime"
-      },
-      {
-        title: "处置人",
-        dataIndex: "eventHandler"
-      },
-      {
-        title: "处置时间",
-        dataIndex: "handledTime"
-      },
-      {
-        title: "具体处置",
-        dataIndex: "detail"
-      }
+      { title: "归集人", dataIndex: "recorder", key: "recorder" },
+      { title: "归集时间", dataIndex: "collectedTime", key: "collectedTime" },
+      { title: "处置人", dataIndex: "eventHandler", key: "eventHandler" },
+      { title: "处置时间", dataIndex: "handledTime", key: "handledTime" },
+      { title: "具体处置", dataIndex: "detail", key: "detail" }
     ];
     let { more, sumPage } = this.state;
     const currentSize = 5 + more;
