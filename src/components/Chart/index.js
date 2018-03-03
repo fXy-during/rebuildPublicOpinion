@@ -55,11 +55,11 @@ class Chart extends PureComponent{
         // console.log(followCountPoints[2]);
         // console.log(Array.from(postCountPoints)[2] );
 
-        followCountPoints.map((item, index) => {
+        followCountPoints.forEach((item, index) => {
             FLLOW.x.push(item.x.slice(-5));
             FLLOW.y.push(item.y);
         })
-        postCountPoints.map((item, index) => {
+        postCountPoints.forEach((item, index) => {
             POST.x.push(item.x.slice(-5));
             POST.y.push(item.y);
         })

@@ -153,7 +153,7 @@ class EventsByTopicList extends PureComponent {
   }
   otherPageAction() {}
   componentWillUpdate(preProps, preState) {
-    if (preProps.ids.length != this.props.ids.length) {
+    if (preProps.ids.length !== this.props.ids.length) {
       let ids = preProps.ids;
       this.getDataList(ids);
     }

@@ -1,19 +1,19 @@
 import React, { PureComponent } from "react";
-import { Table, Icon, Button, message, Modal  } from 'antd';
+import { Table, Icon, Button, message, Modal } from "antd";
 
-import getSpecialTopicList from '../../../fetch/SpecialList/topicList';
-import getSpecialEventList from '../../../fetch/SpecialList/eventList';
-import deleteSpecial from '../../../fetch/deleteSpecial';
+import getSpecialTopicList from "../../../fetch/SpecialList/topicList";
+import getSpecialEventList from "../../../fetch/SpecialList/eventList";
+import deleteSpecial from "../../../fetch/deleteSpecial";
 
-import * as fetchType from '../../../constants/fetchType';
+import * as fetchType from "../../../constants/fetchType";
 
-import format from '../../DataExhibition/subpage/format';
+import format from "../../DataExhibition/subpage/format";
 
-import collect from '../../../fetch/collect';
+import collect from "../../../fetch/collect";
 
-import Collection from '../../DataList/dailyList/subpage';
-import IncreaseEvent from './IncreaseEventWrap'
-import './style.less';
+import Collection from "../../DataList/dailyList/subpage";
+import IncreaseEvent from "./IncreaseEventWrap";
+import "./style.less";
 
 /*
 cacheData 结构;
@@ -136,9 +136,7 @@ class NestedTable extends PureComponent {
     // 确认数据源 缓存或者fetch
     // console.log('page', pagination);
     let cacheItem = preCacheData.filter((item, index) => {
-      if (item.page === pagination.current) {
-        return item;
-      }
+      return item.page === pagination.current;
     });
 
     if (!!cacheItem.length) {
@@ -185,7 +183,7 @@ class NestedTable extends PureComponent {
 
   // 点击归集按钮时
   handleClickCollectionAction(currentCowData) {
-    let { topicList } = this.state;
+    // let { topicList } = this.state;
     // 更新状态
     this.setState({
       currentCowData,
@@ -199,7 +197,7 @@ class NestedTable extends PureComponent {
   // 对象更新
   concatTopicList(preArr, newSingleObj, id) {
     return preArr.map((item, index) => {
-      if (item.id != id) {
+      if (item.id !== id) {
         return item;
       } else {
         return Object.assign({}, item, {
@@ -522,7 +520,7 @@ class NestedTable extends PureComponent {
       </div>
     );
   }
-}         // rowKey值 和 每行数据中的key值对应
-          // onExpand={this.onExpand.bind(this)}
+} // rowKey值 和 每行数据中的key值对应
+// onExpand={this.onExpand.bind(this)}
 
 export default NestedTable;

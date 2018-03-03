@@ -76,7 +76,7 @@ class HandleDataList extends PureComponent {
   }
   // 处理筛选
   handleFilter({ key, value }) {
-    let isAll = value == 2 ? true : false;
+    let isAll = value === 2 ? true : false;
     if (isAll) {
       this.setState({
         isHandled: { value: 2 },
@@ -133,7 +133,7 @@ class HandleDataList extends PureComponent {
     let { isHandled, isFeedBack } = this.state;
     // 覆盖相同页码的数据
     cacheData = cacheData.map((item, index) => {
-      if (item.page != page) {
+      if (item.page !== page) {
         return item;
       } else {
         isIn = true;
@@ -200,7 +200,7 @@ class HandleDataList extends PureComponent {
       .then(json => {
         let data = json.eventPageList;
         // 格式化时间
-        data.map((item, index) => {
+        data.forEach((item, index) => {
           item.collectedTime = format(item.collectedTime, "yyyy-MM-dd hh:mm");
           item.handledTime = format(item.handledTime, "yyyy-MM-dd hh:mm");
         });
@@ -364,7 +364,7 @@ class HandleDataList extends PureComponent {
               value={this.state.isHandled.value}
             >
               <Radio
-                disabled={this.state.isFeedBack.value == 1 ? true : false}
+                disabled={this.state.isFeedBack.value === 1 ? true : false}
                 style={radioStyle}
                 value={0}
               >
@@ -394,7 +394,7 @@ class HandleDataList extends PureComponent {
                 未反馈
               </Radio>
               <Radio
-                disabled={this.state.isHandled.value == 0 ? true : false}
+                disabled={this.state.isHandled.value === 0 ? true : false}
                 style={radioStyle}
                 value={1}
               >

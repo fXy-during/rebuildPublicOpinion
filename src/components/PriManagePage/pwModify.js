@@ -45,16 +45,8 @@ class PwModify extends PureComponent {
     this.props.form.resetFields();
   }
   render() {
-    const {
-      getFieldDecorator,
-      getFieldsError,
-      getFieldError,
-      isFieldTouched
-    } = this.props.form;
-    const userNameError =
-      isFieldTouched("userName") && getFieldError("userName");
-    const passwordError =
-      isFieldTouched("password") && getFieldError("password");
+    const { getFieldDecorator } = this.props.form;
+
     return (
       <Form layout="vertical">
         <FormItem label="Currently User">

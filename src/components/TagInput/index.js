@@ -28,7 +28,7 @@ class TagInput extends PureComponent {
     let deleteObj = e.target.previousSibling.innerText;
     let { tags } = this.state;
     tags = tags.filter((item, index) => {
-      return item != deleteObj;
+      return item !== deleteObj;
     });
     this.setState({ tags });
   }
@@ -61,7 +61,7 @@ class TagInput extends PureComponent {
     if (!value) {
       return;
     }
-    if (tags.indexOf(value) != -1) {
+    if (tags.indexOf(value) !== -1) {
       message.error("输入重复");
       return;
     }

@@ -26,7 +26,7 @@ class Handle extends PureComponent {
   //     })
   // }
   render() {
-    if (this.props.userinfo.username == null) {
+    if (!this.props.userinfo.username) {
       // 判断用户登录情况
       return <Redirect to="/" />;
     }

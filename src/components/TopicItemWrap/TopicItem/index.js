@@ -85,7 +85,7 @@ class TopicItem extends PureComponent {
           <Icon type="close" className="TopicItem-icon-delete" />
         </Popconfirm>
         <p className="TopicItem-header">{data.name}</p>
-        <p className="TopicItem-url-container">
+        <div className="TopicItem-url-container">
           {data.url.map((item, index) => (
             <EditableInput
               key={index}
@@ -93,7 +93,7 @@ class TopicItem extends PureComponent {
               value={item}
             />
           ))}
-        </p>
+        </div>
       </Card.Grid>
     );
   }

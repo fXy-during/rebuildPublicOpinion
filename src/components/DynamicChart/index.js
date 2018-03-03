@@ -195,7 +195,7 @@ class DynamicChart extends PureComponent{
           })
           // 整理
           initOptions.xAxis.data = Array.prototype
-          .filter.call(xAxis, (item, index, arr) =>arr.indexOf(item) == index )// 去重
+          .filter.call(xAxis, (item, index, arr) =>arr.indexOf(item) === index )// 去重
           .sort((pre, next)=>pre-next)  // 排序
           .map((item, index)=>format(item, 'MM-dd')) // 格式化
 

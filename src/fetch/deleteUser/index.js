@@ -5,7 +5,7 @@ import * as fetchType from '../../constants/fetchType';
 
 export default function deleteUser(params, token='', type) {
     let url = '/event/user/deleteUser/';
-    if (type == fetchType.FETCH_TYPE_POST_URL) {
+    if (type === fetchType.FETCH_TYPE_POST_URL) {
         url += params;
         params = "";
     }

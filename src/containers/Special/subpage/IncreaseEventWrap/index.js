@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Form, Icon, Input, Button, message, Modal } from "antd";
+import { Form, Icon, Input, Button, message } from "antd";
 
 import TagInput from "../../../../components/TagInput";
 
@@ -28,7 +28,7 @@ class IncreaseEventWrap extends PureComponent {
     let topicName = this.props.form.getFieldValue("name");
     this.setState({ topicName });
     let { region, rules } = this.state;
-    let { token, user, afterAdd, onCancle } = this.props;
+    let { token, afterAdd, onCancle } = this.props;
     if (!topicName || !region || !rules) {
       message.error("input null");
       return;
@@ -63,9 +63,6 @@ class IncreaseEventWrap extends PureComponent {
   render() {
     const {
       getFieldDecorator,
-      getFieldsError,
-      getFieldError,
-      isFieldTouched
     } = this.props.form;
     const { rulesDone, regionDone } = this.state;
     return (

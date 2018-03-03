@@ -1,5 +1,5 @@
 import post from '../post';
-import * as fetchType from '../../constants/fetchType';
+// import * as fetchType from '../../constants/fetchType';
 
 
 

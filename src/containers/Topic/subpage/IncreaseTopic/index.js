@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Form, Icon, Input, Button, message, Modal } from "antd";
+import { Form, Icon, Input, Button} from "antd";
 import "./style.less";
 const FormItem = Form.Item;
 

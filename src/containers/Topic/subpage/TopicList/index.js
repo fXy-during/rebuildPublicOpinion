@@ -145,7 +145,7 @@ class TopicList extends PureComponent {
     // delete value.topicName;
     for (let [keys, value] of Object.entries(value)) {
       console.log("keys", keys);
-      if (keys.indexOf("url") == 0) {
+      if (keys.indexOf("url") === 0) {
         urls.push(`http://tieba.baidu.com/p/${value}`);
       }
     }

@@ -145,7 +145,7 @@ class DailyDataList extends PureComponent {
     let isIn = false;
     // 覆盖相同页码的数据
     cacheData = cacheData.map((item, index) => {
-      if (item.page != page) {
+      if (item.page !== page) {
         return item;
       } else {
         isIn = true;
@@ -202,7 +202,7 @@ class DailyDataList extends PureComponent {
       })
       .then(json => {
         // 格式化时间
-        json.map((item, index) => {
+        json.forEach((item, index) => {
           item.lastFollowTime = format(item.lastFollowTime, "yyyy-MM-dd hh:mm");
           item.postTime = format(item.postTime, "yyyy-MM-dd hh:mm");
         });

@@ -33,7 +33,7 @@ class Special extends PureComponent {
   render() {
     // const { role, username } = this.props.userinfo;
     // console.log('this.props.userinfo', this.props.userinfo);
-    if (this.props.userinfo.username == null) {
+    if (!this.props.userinfo.username) {
       // 判断用户登录情况
       return <Redirect to="/" />;
     }

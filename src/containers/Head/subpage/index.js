@@ -79,7 +79,7 @@ class User extends PureComponent {
           </span>
         </Dropdown>
         <span className="head-reporter">
-          {this.props.current == "topic" ? (
+          {this.props.current === "topic" ? (
             <Popconfirm
               title={this.sureDownloadTitle()}
               onConfirm={this.DownLoadTopic.bind(this)}
@@ -95,7 +95,7 @@ class User extends PureComponent {
               </Button>
             </Popconfirm>
           ) : (
-            <p>
+            <div>
               <MonthPicker
                 disabled={this.props.isDownLoadReport}
                 className="head-monthpicker"
@@ -111,7 +111,7 @@ class User extends PureComponent {
               >
                 生成报表
               </Button>
-            </p>
+            </div>
           )}
         </span>
       </div>
