@@ -12,8 +12,8 @@ class Category extends PureComponent{
     }
     render(){
       const textStyle = {
-        fontSize: 16,
-        lineHeight: 64,
+        fontSize: "16px",
+        lineHeight: "64px",
       }
         return(
             <Menu id='category_container' style={textStyle} mode='horizontal'

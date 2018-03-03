@@ -29,17 +29,17 @@ class Analyse extends PureComponent {
   //     })
   // }
   render() {
-    const { role, username } = this.props.userinfo;
-    // console.log('this.props.userinfo', this.props.userinfo);
-    if (username) {
+    // const { role, username } = this.props.userinfo;
+    console.log("this.props.userinfo", this.props.userinfo);
+    const userinfo = this.props.userinfo;
+    const role = userinfo.role || "";
+    const username = userinfo.username || "";
+    if (!username) {
       // 判断用户登录情况
       return <Redirect to="/" />;
     }
-    // const userinfo = this.props.userinfo;
-    // const role = userinfo.role;
-    // const username = userinfo.username;
     // console.log('username',username);
-
+    // console.log("history", this.props);
     return (
       <div>
         <Header

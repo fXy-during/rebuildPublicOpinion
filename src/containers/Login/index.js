@@ -58,11 +58,11 @@ class Login extends PureComponent {
               token: token,
               username: username
             });
-            this.history.push("/ana");
+            this.props.history.push("/ana");
           })
           .catch(ex => {
             message.error("用戶名或者密码输入错误");
-            // console.log('登录发生错误', ex.message);
+            console.log('登录发生错误', ex.message);
           });
       }
     });

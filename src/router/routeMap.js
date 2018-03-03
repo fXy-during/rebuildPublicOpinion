@@ -5,14 +5,14 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 
-import Analyse from "../containers/Analyse"; // 舆情分析
 import Handle from "../containers/Handle"; // 舆情处置
 import Special from "../containers/Special"; // 专题事件
 import Topic from "../containers/Topic"; // 专贴事件
 import Login from "../containers/Login";
 import NotFound from "../containers/Notfound";
-import App from "../containers/App";
-
+import Analyse from "../containers/Analyse"; // 舆情分析
+// import App from "../containers/App";
+import { Button } from "antd";
 // import { Affix, Button } from "antd";
 
 // let count = 0;
@@ -27,23 +27,23 @@ class RouteMap extends React.Component {
     console.log("记录PV");
     //PV统计
   }
+  // <Route path="/ana" render={() => <div><Button>66</Button></div>} />
   render() {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/ana" render={() => <div>gogogo</div>} />
+          <Route path="/ana" component={Analyse} />
           <Route path="/handle" component={Handle} />
           <Route path="/special" component={Special} />
           <Route path="/Topic" component={Topic} />
-          <Route path="/login(/:router)" component={Login} />
-          <Redirect exact from="/" to="/ana" />
+          <Route path="/login" component={Login} />
+          <Redirect exact from="/" to="/login" />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
     );
   }
 }
-// <Route path="/ana"  component={Analyse} />
 // 连接redux
 
 // {

@@ -45,7 +45,7 @@ class Head extends PureComponent {
   // 点击时调用
   handleDiffPage(e) {
     console.log("click ", e.key);
-    this.history.push(e.key);
+    this.props.history.push(e.key);
     this.setState({
       current: e.key
     });
@@ -61,7 +61,7 @@ class Head extends PureComponent {
   handleDisconneted() {
     console.log("handleDisconneted");
     this.props.userinfoAction.logout({});
-    this.history.push("login");
+    this.props.history.push("login");
   }
   // 生成专报
   handleDownLoadTopicReport() {
