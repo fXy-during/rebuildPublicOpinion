@@ -18,12 +18,12 @@ import Analyse from "../containers/Analyse"; // 舆情分析
 // import { Affix, Button } from "antd";
 
 // let count = 0;
-// const AsyncHandle = loadable(()=> import("../containers/Handle"));
-// const AsyncSpecial = loadable(() => import("../containers/Special"));
-// const AsyncTopic = loadable(() => import("../containers/Topic"));
-// const AsyncLogin = loadable(() => import("../containers/Login"));
-// const AsyncNotFound = loadable(() => import("../containers/Notfound"));
-// const AsyncAnalyse = loadable(() => import("../containers/Analyse"));
+// const Handle = loadable(()=> import("../containers/Handle"));
+// const Special = loadable(() => import("../containers/Special"));
+// const Topic = loadable(() => import("../containers/Topic"));
+// const Login = loadable(() => import("../containers/Login"));
+// const NotFound = loadable(() => import("../containers/Notfound"));
+// const Analyse = loadable(() => import("../containers/Analyse"));
 
 
 class RouteMap extends React.Component {

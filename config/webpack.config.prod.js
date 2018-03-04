@@ -12,7 +12,8 @@ const eslintFormatter = require("react-dev-utils/eslintFormatter");
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin");
 const paths = require("./paths");
 const getClientEnvironment = require("./env");
-
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -35,7 +36,7 @@ if (env.stringified["process.env"].NODE_ENV !== '"production"') {
 }
 
 // Note: defined here because it will be used more than once.
-const cssFilename = "static/css/[name].[contenthash:8].css";
+const cssFilename = "./static/css/[name].[contenthash:8].css";
 
 // ExtractTextPlugin expects the build output to be flat.
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
@@ -77,7 +78,8 @@ module.exports = {
       // initialization, it doesn't blow up the WebpackDevServer client, and
       // changing JS code would still trigger a refresh.
     ],
-    react: ["react", "react-dom"]
+    vendor: ["react", "react-dom", "react-router-dom", "echarts"],
+    antd: ["antd"]
   },
   output: {
     // The build folder.
@@ -167,8 +169,14 @@ module.exports = {
             include: paths.appSrc,
             loader: require.resolve("babel-loader"),
             options: {
-              compact: true
-            }
+              compact: true,
+              plugins: [
+                [
+                  "import",
+                  { libraryName: "antd", libraryDirectory: "es", style: true }
+                ] // `style: true` 会加载 less 文件
+              ]
+            },
           },
           // The notation here is somewhat confusing.
           // "postcss" loader applies autoprefixer to our CSS.
@@ -183,7 +191,7 @@ module.exports = {
           // use the "style" loader inside the async code so CSS from them won't be
           // in the main CSS file.
           {
-            test: /\.css$/,
+            test: /\.(css|less)$/,
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
@@ -221,6 +229,9 @@ module.exports = {
                           })
                         ]
                       }
+                    },
+                    {
+                      loader: require.resolve("less-loader")
                     }
                   ]
                 },
@@ -239,7 +250,7 @@ module.exports = {
             // it's runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
             // by webpacks internal loaders.
-            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/],
+            exclude: [/\.(js|jsx|mjs)$/, /\.html$/, /\.json$/, /\.less$/],
             options: {
               name: "static/media/[name].[hash:8].[ext]"
             }
@@ -346,11 +357,13 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new BundleAnalyzerPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       // name: "commons",
-      name: ["react"]
-      // filename: "commons.[name].[hash:8].js",
-      // minChunks: 2
+      // async: true,
+      name: ["antd", "vendor"],
+      filename: "static/js/commons.[name].[hash:8].js",
+      minChunks: 2
     })
   ],
   // Some libraries import Node modules but don't use them in the browser.
