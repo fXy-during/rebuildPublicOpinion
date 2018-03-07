@@ -30,7 +30,7 @@ class Analyse extends PureComponent {
   // }
   render() {
     // const { role, username } = this.props.userinfo;
-    console.log("this.props.userinfo", this.props.userinfo);
+    console.log("this.props.userinfo", this.props);
     const userinfo = this.props.userinfo;
     const role = userinfo.role || "";
     const username = userinfo.username || "";

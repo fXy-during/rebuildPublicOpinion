@@ -170,6 +170,7 @@ module.exports = {
             loader: require.resolve("babel-loader"),
             options: {
               compact: true,
+              cacheDirectory: true,
               plugins: [
                 [
                   "import",
@@ -298,7 +299,8 @@ module.exports = {
         // https://github.com/facebookincubator/create-react-app/issues/2376
         // Pending further investigation:
         // https://github.com/mishoo/UglifyJS2/issues/2011
-        comparisons: false
+        comparisons: false,
+        drop_console: true,
       },
       mangle: {
         safari10: true

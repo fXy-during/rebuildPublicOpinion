@@ -45,6 +45,7 @@ class Head extends PureComponent {
   // 点击时调用
   handleDiffPage(e) {
     console.log("click ", e.key);
+    console.log("this.props.history ", this.props.history);    
     this.props.history.push(e.key);
     this.setState({
       current: e.key
